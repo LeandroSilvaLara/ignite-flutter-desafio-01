@@ -10,11 +10,57 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: "Meu Primeiro App",
       home: HomePage(),
-    );
+    ); // MaterialApp
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return HomePageState();
+  }
+}
+
+class HomePageState extends State<HomePage> {
+  var count = 0;
+  @override
+  Widget bluid(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.purple,
+      appBar: AppBar(
+        backgroundColor: Colors.purpleAccent,
+        title: Text("Contador"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(
+          "Contagem: $count",
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.purpleAccent,
+        onPressed: () {
+          setState(() {
+            count++;
+          });
+        },
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
+/*
+class HomePage extends StatelessWidget{
+  State<Statef>
+}
+mixin HomePage implements StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +87,9 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class StatelessWidget {
+}
+*/
 /*
 class MeuWidget extends StatelessWidget {
   @override
